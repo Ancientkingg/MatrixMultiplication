@@ -37,17 +37,3 @@ std::unique_ptr<int_fast64_t[]> naive_array_matrix_mul(int_fast64_t* A, int_fast
 	}
 	return outputMatrix;
 }
-
-std::unique_ptr<int_fast64_t[]> cache_optimized_array_matrix_mul(int_fast64_t* A, int_fast64_t* B, uint_fast32_t n) {
-	auto outputMatrix = std::make_unique<int_fast64_t[]>(n * n);
-
-	for (size_t column = 0; column < n; column++) {
-		for (size_t k = 0; k < n; k++) {
-
-			for (size_t row = 0; row < n; row++) {
-				outputMatrix[column * n + row] += A[column * n + k] * B[k * n + row];
-			}
-		}
-	}
-	return outputMatrix;
-}
