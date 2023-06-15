@@ -16,9 +16,9 @@ It iterates over all elements of the result matrix and calculates the value by s
 In Python the algorithm for multiplying two square row-major matrices with each other would look like the following:
 ```python
 for i in range(n):
-	for j in range(n):
-		for k in range(n):
-			outputMatrix[i][j] += leftMatrix[i][k] * rightMatrix[k][j]
+  for j in range(n):
+    for k in range(n):
+      outputMatrix[i][j] += leftMatrix[i][k] * rightMatrix[k][j]
 ```
 
 *Note that in my implementation the input matrices are one dimensional row-major as opposed to the usual two dimensions row-major in a matrix.*
@@ -50,9 +50,9 @@ the partial sums are stored in the output matrix.
 
 ```python
 for i in range(n):
-	for k in range(n):
-		for j in range(n):
-			outputMatrix[i][j] += leftMatrix[i][k] * rightMatrix[k][j]
+  for k in range(n):
+    for j in range(n):
+      outputMatrix[i][j] += leftMatrix[i][k] * rightMatrix[k][j]
 ```
 
 Only one implementation is provided since it was concluded that the array implementation was faster than the vector implementation:
