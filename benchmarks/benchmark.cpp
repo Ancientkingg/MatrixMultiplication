@@ -5,7 +5,7 @@
 
 #include <cstdlib>
 
-#define MATRIX_SIZES Arg(2)->Arg(3)->Arg(16)->Arg(64)->Arg(256)->Arg(512)->Arg(1024)->Arg(2048)
+#define MATRIX_SIZES Arg(2)->Arg(3)->Arg(8)->Arg(16)->Arg(32)->Arg(64)->Arg(128)->Arg(256)->Arg(384)->Arg(512)->Arg(1024)->Arg(2048)
 
 static void BM_naive_vector_matrix_mul(benchmark::State& state) {
 	std::vector<int_fast64_t> A(state.range(0) * state.range(0), 0);
