@@ -17,7 +17,7 @@
 mono_crash.*
 
 # Build results
-profiling_out/
+*_out/
 
 [Dd]ebug/
 [Dd]ebugPublic/

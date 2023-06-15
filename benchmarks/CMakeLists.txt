@@ -29,4 +29,14 @@ target_link_libraries(
     MatrixMul
 )
 
+message("CMAKE_BUILD_TYPE = ${CMAKE_BUILD_TYPE}")
+
+IF(CMAKE_BUILD_TYPE MATCHES Debug)
+  message("Debug build.")
+ELSEIF(CMAKE_BUILD_TYPE MATCHES Release)
+  message("Release build.")
+ELSE()
+  message("Some other build type.")
+ENDIF()
+
 target_include_directories (matrixmul_benchmark PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/../lib)
