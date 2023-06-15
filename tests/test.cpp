@@ -71,3 +71,40 @@ TEST(NaiveArrayMatrixMulTest, 3x3MatrixMul) {
 	ASSERT_THAT(std::vector<int_fast64_t>(output.get(), output.get() + 3 * 3),
 		::testing::ElementsAreArray(C));
 }
+
+
+TEST(CacheOptimizedArrayMatrixMulTest, 2x2IdentityMatrixMul) {
+	int_fast64_t A[] = { 1,0,0,1 };
+	int_fast64_t B[] = { 1,0,0,1 };
+
+	int_fast64_t C[] = { 1,0,0,1 };
+
+	auto output = cache_optimized_array_matrix_mul(A, B, 2);
+
+	ASSERT_THAT(std::vector<int_fast64_t>(output.get(), output.get() + 2 * 2),
+		::testing::ElementsAreArray(C));
+}
+
+TEST(CacheOptimizedArrayMatrixMulTest, 2x2MatrixMul) {
+	int_fast64_t A[] = { 1,2,3,4 };
+	int_fast64_t B[] = { 5,6,7,8 };
+
+	int_fast64_t C[] = { 19,22,43,50 };
+
+	auto output = cache_optimized_array_matrix_mul(A, B, 2);
+
+	ASSERT_THAT(std::vector<int_fast64_t>(output.get(), output.get() + 2 * 2),
+		::testing::ElementsAreArray(C));
+}
+
+TEST(CacheOptimizedArrayMatrixMulTest, 3x3MatrixMul) {
+	int_fast64_t A[] = { 1,2,3,4,5,6,7,8,9 };
+	int_fast64_t B[] = { 10,11,12,13,14,15,16,17,18 };
+
+	int_fast64_t C[] = { 84,90,96,201,216,231,318,342,366 };
+
+	auto output = cache_optimized_array_matrix_mul(A, B, 3);
+
+	ASSERT_THAT(std::vector<int_fast64_t>(output.get(), output.get() + 3 * 3),
+		::testing::ElementsAreArray(C));
+}
